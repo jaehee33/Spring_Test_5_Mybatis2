@@ -3,6 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
+  <!-- sql -->
   <mapper namespace="NoticeMapper">
   
+  	<select id="selectList" resultType="NoticeDTO">
+  		select * from (select rownum R, N.* from (select * from notice order by num) N) where R between 1 and 10
+  	</select>
+  	<select id="selectOne" parameterType="int" resultType="NoticeDTO">
+  		select * from notice where num=#{num}
+  	</select>
+  	<insert id="insert" parameterType="NoticeDTO">
+  		insert into notice values(board_seq.nextval,#{title},#{writer},#{contents},sysdate,0)
+  	</insert>
+  	<delete id="delete" parameterType="int">
+  		delete notice where num=#{num}
+  	</delete>
+  	<update id="update" parameterType="NoticeDTO">
+  		update notice set title=#{title}, contents=#{contents} where num=#{num}
+  	</update>
+  	
   </mapper>
