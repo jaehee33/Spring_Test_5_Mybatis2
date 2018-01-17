@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.iu.board.BoardDTO;
 import com.iu.board.BoardService;
+import com.iu.util.ListData;
 
 @Service
 public class QnaService implements BoardService {
@@ -15,7 +16,7 @@ public class QnaService implements BoardService {
 	private QnaDAO qnaDAO;
 	
 	@Override
-	public List<BoardDTO> selectList() throws Exception {
+	public List<BoardDTO> selectList(ListData listData) throws Exception {
 		return qnaDAO.selectList();
 	}
 
