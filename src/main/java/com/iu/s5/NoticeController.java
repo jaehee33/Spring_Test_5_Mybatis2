@@ -5,7 +5,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.board.BoardDTO;
@@ -31,6 +33,28 @@ public class NoticeController {
 		mv.addObject("board", "notice");
 		mv.setViewName("board/boardList");
 		return mv;
+		
+	}
+	@RequestMapping(value="noticeWrite", method=RequestMethod.GET)
+	public String insert(Model model){
+		model.addAttribute("board", "notice");
+		return "board/boardWrite";
+	}
+	@RequestMapping(value="noticeWrite", method=RequestMethod.POST)
+	public String insert2(BoardDTO boardDTO) throws Exception{
+		noticeService.insert(boardDTO);
+		return "redirect:./noticeList";
+		
+		//common 방법
+		/*int result = noticeService.insert(boardDTO);
+		ModelAndView mv = new ModelAndView();
+		String message="Fail";
+		if(result>0){
+			message="Success";
+		}
+		mv.addObject("message", message);
+		mv.addObject("path", noticeList);
+		mv.setViewName("common/result");*/
 		
 	}
 

@@ -16,6 +16,11 @@ public class NoticeDAO implements BoardDAO {
 	public NoticeDAO(SqlSession sqlSession) {
 		this.sqlsession = sqlSession;
 	}
+	
+	@Override
+	public int totalCount(ListData listData) throws Exception {
+		return sqlsession.selectOne(NAMESPACE+"totalCount", listData);
+	}
 
 	@Override
 	public List<BoardDTO> selectList(ListData listData) throws Exception {
@@ -40,10 +45,6 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public int delete(int num) throws Exception {
 		return sqlsession.delete(NAMESPACE+"delete", num);
-	}
-	@Override
-	public int totalCount(ListData listData) throws Exception {
-		return sqlsession.selectOne(NAMESPACE+"totalCount", listData);
 	}
 
 }

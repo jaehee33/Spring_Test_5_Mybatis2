@@ -12,6 +12,11 @@ $(function(){
 	/*$("#btn").clic(function(){
 		document.frm.submit();
 	}); */
+	var message='${message}';
+	if(message != ''){
+		alert(message);
+	}
+	
 	$(".page").click(function(){
 		var cur=$(this).attr("title");
 		document.frm.curPage.value=cur;
@@ -74,6 +79,12 @@ $(function(){
 			<span class="page" title="${page.lastNum+1}">[다음]</span>
 		</c:if>
 		
+	</div>
+	
+	<div>
+	<form action="./${board}Write" method="get">
+		<a href="./${board}Write">write</a>
+	</form>
 	</div>
 </body>
 </html>

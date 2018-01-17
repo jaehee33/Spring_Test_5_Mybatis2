@@ -31,7 +31,7 @@
   		<if test="kind == 'contents'">
   		  where contents LIKE '%'||#{search}||'%'
   		</if>
-  		order by num) N) where R between #{startRow} and #{lastRow}
+  		order by num desc) N) where R between #{startRow} and #{lastRow}
   	</select>
   	<select id="selectOne" parameterType="int" resultType="NoticeDTO">
   		select * from notice where num=#{num}
