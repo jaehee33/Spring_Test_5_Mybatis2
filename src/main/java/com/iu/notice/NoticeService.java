@@ -7,7 +7,6 @@ import com.iu.board.BoardService;
 import com.iu.util.ListData;
 import com.iu.util.PageMaker;
 
-import oracle.net.ns.Packet;
 
 public class NoticeService implements BoardService {
 	

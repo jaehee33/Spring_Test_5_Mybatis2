@@ -17,6 +17,11 @@ public class QnaDAO implements BoardDAO {
 	@Inject
 	private SqlSession sqlsession;
 	private final String NAMESPACE="QnaMapper.";
+	
+	@Override
+	public int totalCount(ListData listData) throws Exception {
+		return sqlsession.selectOne(NAMESPACE+"totalCount", listData);
+	}
 
 	@Override
 	public List<BoardDTO> selectList(ListData listData) throws Exception {

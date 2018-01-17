@@ -17,7 +17,7 @@ public class QnaService implements BoardService {
 	
 	@Override
 	public List<BoardDTO> selectList(ListData listData) throws Exception {
-		return qnaDAO.selectList();
+		return qnaDAO.selectList(listData);
 	}
 
 	@Override
