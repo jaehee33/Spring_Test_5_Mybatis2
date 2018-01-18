@@ -5,6 +5,6 @@
   
   <configuration>
   	<typeAliases>
-  		<typeAlias type="com.iu.notice.NoticeDTO" alias="NoticeDTO"/>
+
   	</typeAliases>
   </configuration>
